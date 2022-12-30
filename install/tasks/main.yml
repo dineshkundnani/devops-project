@@ -17,21 +17,21 @@
     enabled: yes
 - name: install docker-pyhton 
   command: yum install python-docker-py
-- name: Copying Dockerfile
-  copy:
-   src: /ansible/Dockerfile
-   dest: /home/ansible/
+# - name: Copying Dockerfile
+#  copy:
+#   src: /ansible/Dockerfile
+#   dest: /home/ansible/
 
-- name: Build Image
-  command: docker build -t testimage .
-  args:
-    chdir: /home/ansible
+# - name: Build Image
+#  command: docker build -t testimage .
+ # args:
+ #   chdir: /home/ansible
 
 
 - name: Create a container
   docker_container:
     name: mycontainer1 
-    image: testimage
+    image: dkundnani/devops-project:latest
     state: started 
 
 
