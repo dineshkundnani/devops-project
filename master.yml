@@ -1,7 +1,7 @@
 ---
   - name: Test Playbook
     hosts: devops
-    user: ansible
+    user: root
     become: yes
     connection: ssh
     roles:
