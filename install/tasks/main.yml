@@ -1,0 +1,37 @@
+--- #install
+- name: Adding Docker repository
+  yum_repository:
+    name: Docker
+    description: Docker Repo
+    baseurl: https://download.docker.com/linux/centos/7/x86_64/stable
+    gpgcheck: no
+- name: Installing Docker package
+  package:
+    name:  "docker-ce-18.09.1-3.el7.x86_64"
+    state: present
+
+- name: Starting docker service
+  service:
+    name: "docker"
+    state: started
+    enabled: yes
+
+- name: Copying Dockerfile
+  copy:
+   src: /home/ansible/Dockerfile
+   dest: /home/ansible/
+
+- name: Build Image
+  command: docker build -t testimage .
+  args:
+    chdir: /home/ansible
+  
+
+- name: Create a container
+  docker_container:
+    name: mycontainer1 
+    image: testimage
+    state: started 
+
+
+

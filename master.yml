@@ -1,0 +1,8 @@
+---
+  - name: Test Playbook
+    hosts: devops
+    user: ansible
+    become: yes
+    connection: ssh
+    roles:
+        - install
