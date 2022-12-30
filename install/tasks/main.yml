@@ -15,7 +15,8 @@
     name: "docker"
     state: started
     enabled: yes
-
+- name: install docker-pyhton 
+  command: yum install python-docker-py
 - name: Copying Dockerfile
   copy:
    src: /ansible/Dockerfile
