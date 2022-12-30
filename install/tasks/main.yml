@@ -33,9 +33,6 @@
     name: mycontainer1 
     image: testimage
     state: started 
-- name: Login docker 
-   docker_login:
-     username: dkundnani
-     password: Dineshk@21
+
 
 
