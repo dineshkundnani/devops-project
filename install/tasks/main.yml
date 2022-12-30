@@ -18,7 +18,7 @@
 
 - name: Copying Dockerfile
   copy:
-   src: /home/ansible/Dockerfile
+   src: /ansible/Dockerfile
    dest: /home/ansible/
 
 - name: Build Image
