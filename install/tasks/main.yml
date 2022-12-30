@@ -26,7 +26,8 @@
   command: docker build -t testimage .
   args:
     chdir: /home/ansible
-  
+- name: tag 
+  command: docker tag $JOB_NAME:v$BUILD_ID dkundnani/$JOB_NAME:v$BUILD_ID
 
 - name: Create a container
   docker_container:
